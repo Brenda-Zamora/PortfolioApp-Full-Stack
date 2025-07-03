@@ -1,0 +1,61 @@
+.navbar {
+  height: 6rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  padding-top: 1rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
+  padding-bottom: 1rem;
+  backdrop-filter: blur(50px);
+}
+
+.logo {
+  object-fit: cover;
+  height: 5rem;
+  width: 6.5rem;
+  margin-top: 1rem;
+}
+
+.navbar-link {
+  font-size: 1.3rem;
+  color: white;
+  text-decoration: none;
+  margin: 1.4rem;
+  cursor: pointer;
+}
+.navbar-link:hover {
+  color: rgb(233, 214, 67);
+  padding-bottom: 0.3rem;
+  border-bottom: 3px solid rgb(204, 187, 57);
+}
+
+.navbar-contact-button {
+  background: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-weight: bold;
+  padding-left: 0.5rem;
+}
+.navbar-contact-button:hover {
+  transform: scale(1.05);
+}
+
+.navbar-contact-img {
+  object-fit: cover;
+  height: 1.3rem;
+  width: 1.45rem;
+  margin: 0.7rem;
+}

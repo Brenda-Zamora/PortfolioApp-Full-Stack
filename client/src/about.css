@@ -1,0 +1,49 @@
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+}
+
+.profile-image {
+  width: 16rem;
+  height: 19rem;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid rgb(223, 212, 54);
+}
+
+.about-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-container h3 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  color: rgb(223, 212, 54);
+}
+
+.about-container p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.resume-link {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  background-color: rgb(136, 129, 25);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.resume-link:hover {
+  background-color: rgb(103, 98, 19);
+  transform: scale(1.02);
+}

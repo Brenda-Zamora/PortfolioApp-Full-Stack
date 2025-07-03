@@ -1,0 +1,100 @@
+#intro {
+  height: 89vh;
+  width: 100%;
+  max-width: 82rem;
+  margin: 0.5rem 5.5rem;
+  position: relative;
+  font-size: x-large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-text {
+  position: relative;
+  z-index: 1;
+  font-size: 2rem;
+}
+
+.intro-title {
+  font-size: 4rem;
+  font-weight: 700;
+  padding-bottom: 1.5rem;
+}
+
+.profile-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  object-fit: cover;
+  height: 80vh;
+  width: 30vw;
+}
+
+.intro-content {
+  height: 100vh;
+  width: 100vw;
+  padding: 2rem;
+  font-size: 3rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hello {
+  font-size: 1.75rem;
+  font-weight: 100;
+}
+
+.intro-name {
+  color: rgb(223, 212, 54);
+}
+
+.intro-para {
+  font-size: medium;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+.mission-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+}
+
+.intro-para2 {
+  font-size: medium;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+.btn-hireme {
+  background: white;
+  margin: 1rem 0;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 2rem;
+  margin-top: 2rem;
+}
+
+.btn-hireme-img {
+  object-fit: cover;
+  margin-right: 0.75rem;
+  height: 1rem;
+}
+
+.mission {
+  font-size: 1.25rem;
+  font-weight: 100;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
