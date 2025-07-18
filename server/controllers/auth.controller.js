@@ -2,6 +2,8 @@ import User from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 import { expressjwt } from "express-jwt";
 import config from "./../../config/config.js";
+import errorHandler from "./error.controller.js";
+
 const signin = async (req, res) => {
   try {
     let user = await User.findOne({ email: req.body.email });
@@ -22,6 +24,8 @@ const signin = async (req, res) => {
       },
     });
   } catch (err) {
+    const errorMessage = errorHandler.getErrorMessage(err);
+    console.error("Signin error:", errorMessage);
     return res.status("401").json({ error: "Could not sign in" });
   }
 };

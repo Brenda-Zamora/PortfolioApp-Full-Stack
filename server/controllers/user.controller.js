@@ -3,16 +3,26 @@ import extend from "lodash/extend.js";
 import errorHandler from "./error.controller.js";
 
 // This function will be used to add a new user
-const create = async (req, res) => {
-  const user = new User(req.body);
+const createUser = async (req, res) => {
+  const { name, email, password } = req.body;
+
   try {
-    await user.save();
+    const newUser = new User();
+    newUser.name = name;
+    newUser.email = email;
+    newUser.password = password; // Use the virtual setter for password
+
+    await newUser.save();
+
     return res.status(200).json({
       message: "Successfully signed up!",
     });
   } catch (err) {
+    console.error("Error creating user:", err);
     return res.status(400).json({
-      error: errorHandler.getErrorMessage(err),
+      message: "Error al crear el usuario",
+      error: err.message,
+      full: err,
     });
   }
 };
@@ -84,4 +94,5 @@ const remove = async (req, res) => {
     });
   }
 };
-export default { create, userByID, read, list, remove, update };
+
+export default { createUser, userByID, read, list, remove, update };
