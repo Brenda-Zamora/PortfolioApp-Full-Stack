@@ -1,5 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Signup from "./src/SignUp.jsx";
+import Signin from "./src/SignIn.jsx";
 import Home from "./components/Home";
 import About from "./src/about.jsx";
 import Contact from "./src/contact.jsx";
@@ -14,6 +16,8 @@ const MainRouter = () => {
       <Layout />
 
       <Routes>
+        <Route exact path="/signup" element={<Signup />} />
+        <Route exact path="/signin" element={<Signin />} />
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/services" element={<Service />} />
