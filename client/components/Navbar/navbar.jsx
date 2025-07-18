@@ -2,6 +2,7 @@ import "./navbar.css";
 import { Link } from "react-router-dom";
 import logo from "../../src/assets/logo2.1.png";
 import contactImg from "../../src/assets/contact.png";
+import signInImg from "../../src/assets/signInImg.png";
 
 const Navbar = () => {
   return (
@@ -23,17 +24,31 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <Link to="/contact" className="navbar-contact-link">
-        <button className="navbar-contact-button">
-          <img
-            src={contactImg}
-            className="navbar-contact-img"
-            width="30"
-            height="30"
-          />
-          Contact Me
-        </button>
-      </Link>
+      <div className="navbar-buttons-links">
+        <Link to="/contact" className="navbar-button">
+          <button className="navbar-contact-button">
+            <img
+              src={contactImg}
+              className="navbar-contact-img"
+              width="30"
+              height="30"
+            />
+            Contact Me
+          </button>
+        </Link>
+
+        <Link to="/signin" className="navbar-button">
+          <button className="navbar-signIn-button">
+            <img
+              src={signInImg}
+              className="navbar-signIn-img"
+              width="30"
+              height="30"
+            />
+            Sign In
+          </button>
+        </Link>
+      </div>
     </nav>
   );
 };
