@@ -7,6 +7,7 @@ import About from "./src/about.jsx";
 import Contact from "./src/contact.jsx";
 import Service from "./src/services.jsx";
 import Project from "./src/projects.jsx";
+import ProjectForm from "./components/projectForm.jsx";
 import Layout from "./components/layout";
 import Footer from "./components/Footer/footer.jsx";
 
@@ -22,6 +23,7 @@ const MainRouter = () => {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/services" element={<Service />} />
         <Route exact path="/projects" element={<Project />} />
+        <Route exact path="/projects/add" element={<ProjectForm />} />
         <Route exact path="/contact" element={<Contact />} />
       </Routes>
 

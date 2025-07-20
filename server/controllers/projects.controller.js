@@ -1,7 +1,7 @@
 import Project from "../models/project.model.js";
 
 // Get all projects
-export const getAllProjects = async (req, res) => {
+const getAllProjects = async (req, res) => {
   try {
     const projects = await Project.find();
     res.json(projects);
@@ -11,7 +11,7 @@ export const getAllProjects = async (req, res) => {
 };
 
 // Get a project by ID
-export const getProjectById = async (req, res) => {
+const getProjectById = async (req, res) => {
   try {
     const project = await Project.findById(req.params.id);
     if (!project) {
@@ -24,18 +24,20 @@ export const getProjectById = async (req, res) => {
 };
 
 // Add a new project
-export const addProject = async (req, res) => {
+const addProject = async (req, res) => {
   try {
+    console.log("Request body:", req.body);
     const newProject = new Project(req.body);
     await newProject.save();
     res.status(201).json(newProject);
   } catch (err) {
-    res.status(400).json({ error: "Error creating project" });
+    console.error("Error adding project:", err);
+    res.status(400).json({ error: err.message });
   }
 };
 
 // Update a project by ID
-export const updateProject = async (req, res) => {
+const updateProject = async (req, res) => {
   try {
     const updated = await Project.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -50,7 +52,7 @@ export const updateProject = async (req, res) => {
 };
 
 // Delete a project by ID
-export const deleteProjectById = async (req, res) => {
+const deleteProjectById = async (req, res) => {
   try {
     const deleted = await Project.findByIdAndDelete(req.params.id);
     if (!deleted) {
@@ -63,11 +65,20 @@ export const deleteProjectById = async (req, res) => {
 };
 
 // Delete all projects
-export const deleteAllProjects = async (req, res) => {
+const deleteAllProjects = async (req, res) => {
   try {
     await Project.deleteMany({});
     res.json({ message: "All projects deleted successfully" });
   } catch (err) {
     res.status(500).json({ error: "Error deleting projects" });
   }
+};
+
+export default {
+  getAllProjects,
+  getProjectById,
+  addProject,
+  updateProject,
+  deleteProjectById,
+  deleteAllProjects,
 };

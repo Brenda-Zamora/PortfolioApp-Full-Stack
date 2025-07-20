@@ -24,20 +24,3 @@ app.listen(config.port, (err) => {
   }
   console.info("Server started on port %s.", config.port);
 });
-
-/*
-const express = require('express');
-const app = express();
-const contactsRoutes = require('./routes/contacts');
-const projectsRoutes = require('./routes/projects');
-
-app.use(express.json());
-
-app.use('/api/contacts', contactsRoutes);
-app.use('/api/projects', projectsRoutes);
-
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-*/

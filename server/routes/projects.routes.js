@@ -1,20 +1,19 @@
 import express from "express";
-import {
-  getAllProjects,
-  getProjectById,
-  addProject,
-  updateProject,
-  deleteProjectById,
-  deleteAllProjects,
-} from "../controllers/projects.controller.js";
+import projCtrl from "../controllers/projects.controller.js";
+import authCtrl from "../controllers/auth.controller.js";
 
 const router = express.Router();
 
-router.get("/", getAllProjects); // GET all projects
-router.get("/:id", getProjectById); // GET project by ID
-router.post("/", addProject); // POST new project
-router.put("/:id", updateProject); // PUT update project by ID
-router.delete("/:id", deleteProjectById); // DELETE project by ID
-router.delete("/", deleteAllProjects); // DELETE all projects
+router
+  .route("/api/projects")
+  .get(projCtrl.getAllProjects)
+  .post(authCtrl.requireSignin, authCtrl.isAdmin, projCtrl.addProject) // just admin can add a project
+  .delete(authCtrl.requireSignin, authCtrl.isAdmin, projCtrl.deleteAllProjects); // just admin can delete all
+
+router
+  .route("/api/projects/:projectId")
+  .get(projCtrl.getProjectById) // anyone can get a project by ID
+  .put(authCtrl.requireSignin, authCtrl.isAdmin, projCtrl.updateProject) // just admin can update
+  .delete(authCtrl.requireSignin, authCtrl.isAdmin, projCtrl.deleteProjectById); // just admin can delete
 
 export default router;

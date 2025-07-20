@@ -18,6 +18,12 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: "Password is required",
   },
+  role: {
+    // New field for user role to manage permissions
+    type: String,
+    default: "user",
+    enum: ["admin", "user"],
+  },
   salt: String,
   created: {
     type: Date,

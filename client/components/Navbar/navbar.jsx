@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import logo from "../../src/assets/logo2.1.png";
 import contactImg from "../../src/assets/contact.png";
 import signInImg from "../../src/assets/signInImg.png";
+import LogoutButton from "../logoutButton";
 
 const Navbar = () => {
+  const token = localStorage.getItem("token");
   return (
     <nav className="navbar">
       <img src={logo} alt="Logo " className="logo" />
@@ -37,17 +39,21 @@ const Navbar = () => {
           </button>
         </Link>
 
-        <Link to="/signin" className="navbar-button">
-          <button className="navbar-signIn-button">
-            <img
-              src={signInImg}
-              className="navbar-signIn-img"
-              width="30"
-              height="30"
-            />
-            Sign In
-          </button>
-        </Link>
+        {!token && (
+          <Link to="/signin" className="navbar-button">
+            <button className="navbar-signIn-button">
+              <img
+                src={signInImg}
+                className="navbar-signIn-img"
+                width="30"
+                height="30"
+              />
+              Sign In
+            </button>
+          </Link>
+        )}
+
+        <LogoutButton />
       </div>
     </nav>
   );

@@ -36,8 +36,8 @@ app.use("/", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/contacts", contactRoutes);
-app.use("/api/projects", projectRoutes);
-app.use("/api/qualifications", qualificationRoutes);
+app.use("/", projectRoutes);
+app.use("/", qualificationRoutes);
 
 // Error handling
 app.use((err, req, res, next) => {

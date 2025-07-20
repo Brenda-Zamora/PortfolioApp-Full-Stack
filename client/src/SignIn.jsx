@@ -29,7 +29,9 @@ export default function Signin() {
 
       if (res.ok) {
         const data = await res.json();
+        console.log("Login data:", data);
         localStorage.setItem("token", data.token); // Store token in localStorage
+        localStorage.setItem("role", data.user.role); // Store user role in localStorage
         alert("Login successful ✅");
 
         // Redirect to home or dashboard
