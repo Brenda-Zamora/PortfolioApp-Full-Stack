@@ -1,4 +1,4 @@
-#skills {
+#services {
   min-height: 81.6vh;
   overflow: hidden;
   width: 100vw;
@@ -11,28 +11,28 @@
   margin: 0 auto;
 }
 
-.skillTitle {
+.serviceTitle {
   font-size: 3rem;
   font-weight: 600;
   padding-top: 3rem;
   margin-bottom: 1.5rem;
 }
 
-.skillDesc {
+.serviceIntro {
   font-weight: 400;
   font-size: 1rem;
   max-width: 51rem;
   padding: 0 2rem;
 }
 
-.skillBars {
+.serviceBars {
   margin: 1.5rem;
   width: 100vw;
   max-width: 80%;
   text-align: left;
 }
 
-.skillBar {
+.serviceBar {
   display: flex;
   margin: 1rem;
   padding: 1.5rem 1rem;
@@ -40,18 +40,34 @@
   background: rgb(50, 50, 50);
 }
 
-.skillBarImg {
+.serviceBarImg {
   object-fit: cover;
   height: 7rem;
   width: 12rem;
   margin-right: 1rem;
 }
 
-.skillBarText > p {
+.serviceBarText > p {
   font-size: 1rem;
   font-weight: 200;
 }
 
-.skillBarText > h2 {
+.serviceBarText > h2 {
   margin-bottom: 1rem;
+}
+
+.addServiceBtn {
+  padding: 10px 20px;
+  background-color: #6c6c6c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.addServiceBtn:hover {
+  background-color: #5a5a5a;
 }

@@ -1,48 +1,84 @@
-import SkillBar from "../components/skillbar";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./services.css";
-import service1 from "./assets/Service1.png";
-import service2 from "./assets/Service2.1.png";
-import service3 from "./assets/Service3.png";
 
-export default function Service() {
+const Services = () => {
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [userRole, setUserRole] = useState(null);
+
+  useEffect(() => {
+    // Get the projects from the API
+    fetch("http://localhost:3000/api/services")
+      .then((res) => res.json())
+      .then((data) => {
+        setServices(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching services:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    // Get the user role from localStorage
+    const role = localStorage.getItem("role");
+    setUserRole(role);
+  }, []);
+
   return (
-    <>
-      <section id="skills">
-        <span className="skillTitle">What I do</span>
-        <span className="skillDesc">
-          I’m a passionate software engineering student who loves building
-          useful, clean, and modern digital solutions. I’m always learning and
-          experimenting with new technologies, and I enjoy turning ideas into
-          real, working apps. Whether it's a simple website or a more complex
-          system, I put care and effort into everything I create. Here are some
-          of the services I offer:
-        </span>
-        <div className="skillBars">
-          <SkillBar
-            imgSrc={service1}
-            altText="Custom Web Development"
-            title="Custom Web Development"
-            description="I can create responsive websites using HTML, CSS, JavaScript, 
-            and React. Whether it's a personal blog or a small business page, I’ll help bring 
-            your idea to life in the browser."
-          />
-          <SkillBar
-            imgSrc={service2}
-            altText="App Prototypes and Frontend"
-            title="App Prototypes and Frontend"
-            description="Using tools like React Native or frontend frameworks, I can build 
-            interactive app prototypes that look and feel like the real thing. Perfect for 
-            testing out your idea or impressing investors."
-          />
-          <SkillBar
-            imgSrc={service3}
-            altText="App Debugging and Code Fixes"
-            title="App Debugging and Code Fixes"
-            description="Got bugs? I can help you find and fix issues in your code (JavaScript, 
-            Python, C#, etc.) or improve your project’s structure to make it run smoother."
-          />
+    <section id="services" className="services-container">
+      <span className="serviceTitle">My Services</span>
+      <span className="serviceIntro">
+        I’m a passionate software engineering student who loves building useful,
+        clean, and modern digital solutions. I’m always learning and
+        experimenting with new technologies, and I enjoy turning ideas into
+        real, working apps. Whether it's a simple website or a more complex
+        system, I put care and effort into everything I create. Here are some of
+        the services I offer:
+      </span>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className="serviceBars">
+          {services.map((serv, index) => (
+            <div className="serviceBar" key={index}>
+              <img
+                src={serv.imgSrc}
+                alt={serv.altText}
+                className="serviceBarImg"
+              />
+              <div className="serviceBarText">
+                <h3>{serv.title}</h3>
+                <p>{serv.description}</p>
+                <br />
+                <p>
+                  {serv.completion
+                    ? `Completion Date: ${new Date(
+                        serv.completion
+                      ).toLocaleDateString()}`
+                    : "No completion date"}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
-      </section>
-    </>
+      )}
+
+      <br />
+      {token && userRole === "admin" && (
+        <button
+          className="addServiceBtn"
+          onClick={() => navigate("/services/add")}
+        >
+          Add Service
+        </button>
+      )}
+    </section>
   );
-}
+};
+
+export default Services;

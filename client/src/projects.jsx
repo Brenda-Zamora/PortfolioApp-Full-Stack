@@ -40,6 +40,7 @@ const Projects = () => {
             <div className="project-card" key={index}>
               <h3>{proj.title}</h3>
               <p>{proj.description}</p>
+              <br />
               <p>
                 {proj.completion
                   ? `Completion Date: ${new Date(

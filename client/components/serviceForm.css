@@ -1,4 +1,4 @@
-#projectFormPage {
+#serviceFormPage {
   min-height: 81.6vh;
   width: 100vw;
   max-width: 60rem;
@@ -10,7 +10,7 @@
   justify-content: center;
 }
 
-#project {
+#service {
   background: rgb(51, 51, 51);
   padding: 2rem 2rem 0.5rem;
   border-radius: 12px;
@@ -20,13 +20,13 @@
   margin-bottom: 2rem;
 }
 
-.projectFormTitle {
+.serviceFormTitle {
   font-size: 3rem;
   margin-bottom: 1rem;
   color: rgb(243, 219, 35);
 }
 
-.projectForm {
+.serviceForm {
   margin: 1rem;
   display: flex;
   flex-direction: column;
@@ -37,7 +37,7 @@
   max-width: 60rem;
 }
 
-.projectForm input {
+.serviceForm input {
   width: 100%;
   padding: 0.8rem;
   border: 1px solid #e0e0e0;
@@ -46,7 +46,7 @@
   transition: border-color 0.3s;
 }
 
-.projectForm input:focus {
+.serviceForm input:focus {
   border-color: rgb(243, 219, 35);
   outline: none;
 }
@@ -67,7 +67,7 @@
   background: rgb(40, 40, 40);
 }
 
-.submitProjectBtn {
+.submitServiceBtn {
   background: white;
   border: none;
   border-radius: 0.5rem;
@@ -77,6 +77,6 @@
   font-size: 0.9rem;
 }
 
-.submitProjectBtn:hover {
+.submitServiceBtn:hover {
   background-color: rgb(228, 228, 228);
 }

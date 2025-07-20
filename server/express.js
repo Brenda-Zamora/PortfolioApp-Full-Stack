@@ -9,7 +9,7 @@ import userRoutes from "./routes/user.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import contactRoutes from "./routes/contacts.routes.js";
 import projectRoutes from "./routes/projects.routes.js";
-import qualificationRoutes from "./routes/qualifications.routes.js";
+import serviceRoutes from "./routes/services.routes.js";
 
 const app = express();
 
@@ -37,7 +37,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/contacts", contactRoutes);
 app.use("/", projectRoutes);
-app.use("/", qualificationRoutes);
+app.use("/api/services", serviceRoutes);
 
 // Error handling
 app.use((err, req, res, next) => {
