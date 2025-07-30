@@ -31,6 +31,7 @@ const Navbar = () => {
           <button className="navbar-contact-button">
             <img
               src={contactImg}
+              alt="Contact Me Button"
               className="navbar-contact-img"
               width="30"
               height="30"
@@ -44,6 +45,7 @@ const Navbar = () => {
             <button className="navbar-signIn-button">
               <img
                 src={signInImg}
+                alt="Sign In Button"
                 className="navbar-signIn-img"
                 width="30"
                 height="30"

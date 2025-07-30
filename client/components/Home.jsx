@@ -32,7 +32,11 @@ export default function Home() {
           </p>
           <Link>
             <button className="btn-hireme">
-              <img src={hireme} className="btn-hireme-img" alt="Hire me" />
+              <img
+                src={hireme}
+                className="btn-hireme-img"
+                alt="Hire Me Button"
+              />
               Hire Me
             </button>
           </Link>
