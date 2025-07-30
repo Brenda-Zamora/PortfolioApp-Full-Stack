@@ -9,7 +9,7 @@ export default defineConfig({
     environment: "jsdom",
   },
   build: {
-    outDir: "dist/app",
+    outDir: "dist",
     emptyOutDir: true,
   },
 });
