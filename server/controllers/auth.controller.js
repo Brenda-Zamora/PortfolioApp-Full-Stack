@@ -8,9 +8,7 @@ const signin = async (req, res) => {
     let user = await User.findOne({ email: req.body.email });
     if (!user) return res.status("401").json({ error: "User not found" });
     if (!user.authenticate(req.body.password))
-      return res
-        .status("401")
-        .json({ error: "Email and password don't match." });
+      return res.status(401).json({ error: "Email and password don't match." });
 
     const token = jwt.sign(
       { _id: user._id, role: user.role },
@@ -30,7 +28,7 @@ const signin = async (req, res) => {
   } catch (err) {
     const errorMessage = errorHandler.getErrorMessage(err);
     console.error("Signin error:", errorMessage);
-    return res.status("401").json({ error: "Could not sign in" });
+    return res.status(401).json({ error: "Could not sign in" });
   }
 };
 const signout = (req, res) => {
@@ -68,7 +66,7 @@ const requireSignin = (req, res, next) => {
 const hasAuthorization = (req, res, next) => {
   const authorized = req.profile && req.auth && req.profile._id == req.auth._id;
   if (!authorized) {
-    return res.status("403").json({
+    return res.status(403).json({
       error: "User is not authorized",
     });
   }

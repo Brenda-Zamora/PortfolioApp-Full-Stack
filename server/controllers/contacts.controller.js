@@ -25,8 +25,15 @@ export const updateContact = async (req, res) => {
 };
 
 export const deleteContactById = async (req, res) => {
-  const deleted = await Contact.findByIdAndDelete(req.params.id);
-  deleted ? res.sendStatus(204) : res.status(404).send("Not found");
+  try {
+    const deleted = await Contact.findByIdAndDelete(req.params.id);
+    if (!deleted) {
+      return res.status(404).json({ error: "Contact not found" });
+    }
+    res.json({ message: "Contact deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ error: "Error deleting contact" });
+  }
 };
 
 export const deleteAllContacts = async (req, res) => {
