@@ -12,10 +12,10 @@
     "nodemon": "^3.1.10"
   },
   "scripts": {
-    "dev": "concurrently 'vite' \"nodemon server.js\"",
-    "build": "vite build",
-    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "build": "cd client && npm install && npm run build",
+    "start": "node server.js",
+    "dev": "concurrently \"npm run dev-client\" \"nodemon server.js\"",
+    "dev-client": "cd client && npm run dev"
   },
   "dependencies": {
     "body-parser": "^2.2.0",

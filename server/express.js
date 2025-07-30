@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import compress from "compression";
 import cors from "cors";
 import helmet from "helmet";
+import path from "path";
 
 import userRoutes from "./routes/user.routes.js";
 import authRoutes from "./routes/auth.routes.js";
@@ -12,16 +13,18 @@ import projectRoutes from "./routes/projects.routes.js";
 import serviceRoutes from "./routes/services.routes.js";
 
 const app = express();
+const CURRENT_WORKING_DIR = process.cwd();
 
 // CORS setup
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CORS_ORIGIN || "*",
     credentials: true,
   })
 );
 
 // Middleware setup
+app.use(express.static(path.join(CURRENT_WORKING_DIR, "client", "dist")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -38,6 +41,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/contacts", contactRoutes);
 app.use("/", projectRoutes);
 app.use("/api/services", serviceRoutes);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(CURRENT_WORKING_DIR, "client", "dist", "index.html"));
+});
 
 // Error handling
 app.use((err, req, res, next) => {
