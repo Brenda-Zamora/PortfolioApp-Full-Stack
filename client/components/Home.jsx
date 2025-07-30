@@ -1,5 +1,5 @@
 import "../src/index.css";
-import "../src/Home.css";
+import "../src/home.css";
 import hireme from "../src/assets/hireme.png";
 import IntroImg from "../src/assets/IntroImg2.png";
 import { Link } from "react-router-dom";
