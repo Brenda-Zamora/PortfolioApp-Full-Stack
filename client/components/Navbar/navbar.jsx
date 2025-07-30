@@ -1,7 +1,7 @@
 import "./navbar.css";
 import { Link } from "react-router-dom";
-import logo from "../../src/assets/logo2.1.png";
-import contactImg from "../../src/assets/contact.png";
+import logo from "../../src/assets/Logo2.1.png";
+import contactImg from "../../src/assets/Contact.png";
 import signInImg from "../../src/assets/signInImg.png";
 import LogoutButton from "../logoutButton";
 
