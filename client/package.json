@@ -6,7 +6,7 @@
   "scripts": {
     "check": "echo Vite version: && vite --version",
     "dev": "vite",
-    "build": "vite build",
+    "build": "npx vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext js,jsx"
   },
