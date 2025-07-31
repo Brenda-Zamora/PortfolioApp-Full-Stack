@@ -35,6 +35,10 @@ const Projects = () => {
   return (
     <section id="projects" className="projects-container">
       <h2>My Projects</h2>
+      <p className="projects-intro">
+        Here you’ll find a selection of projects I've worked on, showcasing my
+        skills and experience in web development.
+      </p>
       {loading ? (
         <p>Loading...</p>
       ) : (

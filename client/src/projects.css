@@ -14,6 +14,13 @@
   margin-bottom: 2rem;
 }
 
+.projects-intro {
+  font-weight: 400;
+  font-size: 1rem;
+  max-width: 51rem;
+  padding: 0 2rem;
+}
+
 .projects-grid {
   display: grid;
   gap: 1.5rem;
