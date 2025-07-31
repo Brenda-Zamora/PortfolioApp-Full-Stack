@@ -13,7 +13,7 @@ const getAllProjects = async (req, res) => {
 // Get a project by ID
 const getProjectById = async (req, res) => {
   try {
-    const project = await Project.findById(req.params.id);
+    const project = await Project.findById(req.params.projectId);
     if (!project) {
       return res.status(404).json({ error: "Project not found" });
     }
@@ -39,9 +39,13 @@ const addProject = async (req, res) => {
 // Update a project by ID
 const updateProject = async (req, res) => {
   try {
-    const updated = await Project.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    });
+    const updated = await Project.findByIdAndUpdate(
+      req.params.projectId,
+      req.body,
+      {
+        new: true,
+      }
+    );
     if (!updated) {
       return res.status(404).json({ error: "Project not found" });
     }
@@ -54,7 +58,7 @@ const updateProject = async (req, res) => {
 // Delete a project by ID
 const deleteProjectById = async (req, res) => {
   try {
-    const deleted = await Project.findByIdAndDelete(req.params.id);
+    const deleted = await Project.findByIdAndDelete(req.params.projectId);
     if (!deleted) {
       return res.status(404).json({ error: "Project not found" });
     }
