@@ -11,7 +11,10 @@ const Services = () => {
 
   useEffect(() => {
     // Get the projects from the API
-    fetch("http://localhost:3000/api/services")
+    const BASE_URL =
+      import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+
+    fetch(`${BASE_URL}/api/services`)
       .then((res) => res.json())
       .then((data) => {
         setServices(data);

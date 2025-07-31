@@ -26,11 +26,13 @@ export default function Signup() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:3000/api/users", {
+      const BACKEND_URL =
+        import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+
+      const res = await fetch(`${BACKEND_URL}/api/users`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          //
           name: formData.form_name,
           email: formData.form_email,
           password: formData.form_password,

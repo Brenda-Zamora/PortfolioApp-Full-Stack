@@ -18,7 +18,10 @@ export default function Signin() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:3000/auth/signin", {
+      const BACKEND_URL =
+        import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+
+      const res = await fetch(`${BACKEND_URL}/auth/signin`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
