@@ -34,12 +34,12 @@ app.use(compress());
 app.use(helmet());
 
 // Routes setup
-app.use("/", userRoutes);
-app.use("/", authRoutes);
+//app.use("/", userRoutes);
+//app.use("/", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/contacts", contactRoutes);
-app.use("/", projectRoutes);
+app.use("/api/projects", projectRoutes);
 app.use("/api/services", serviceRoutes);
 
 app.get("*", (req, res) => {

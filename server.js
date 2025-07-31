@@ -8,7 +8,7 @@ mongoose
     console.log("Connected to the database!");
   })
   .catch((err) => {
-    console.error("unable to connect to database: ${config.mongoUri}", err);
+    console.error(`Unable to connect to database: ${config.mongoUri}`, err);
     process.exit(1);
   });
 
